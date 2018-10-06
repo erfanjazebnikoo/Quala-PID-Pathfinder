@@ -1,4 +1,4 @@
-# Quala PID Pathfinder
+# Quala pathfinder robot controlled by PID controller
 The line following robot is one of the autonomous robots. That detects and follows a line drawn on the area. The line is indicated by a white line on a block surface or block line on a white surface. This robot must be sensed the color of the line. This application depends upon the sensors. Here we are using two sensors for path detection purpose. The IR sensor used for path detection and Sharp sensor used for obstacle detection. These sensors mounted at the front end of the robot. The microcontroller is an intelligent device that controls the whole circuit.
 
 [![N|Solid](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-Side-View-LQ.jpg)](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-Side-View.jpg)
@@ -15,6 +15,15 @@ Quala PID Pathfinder robot programmed by CodeVision AVR with C programming langu
 
 ## Hardware
 soon...!
+
+### Concepts of Line Follower
+The concept of working of line follower is related to light. We use here the behavior of light at the black and white surface. When light fall on a white surface it is almost full reflected and in case of black surface light is completely absorbed. This behavior of light is used in building a line follower robot.
+
+![N|Solid](https://circuitdigest.com/sites/default/files/inlineimages/Concept-of-White-Line-Follo.gif)
+![N|Solid](https://circuitdigest.com/sites/default/files/inlineimages/Concept-of-Black-Line-Follo.gif)
+
+In this line follower robot we have used IR Transmitters and receivers also called photodiodes. They are used to send and receive infrared light. When infrared rays fall on the white surface, it’s reflected back and caught by receiver sensor. When IR light falls on a black surface, light is absorbed and no rays are reflected back, thus photodiodes do not receive any light or rays. 
+Here in this robot when the sensor senses a white surface then buffer gets High as input and when the senses black line buffer gets Low as input.
 
 ### 1-  Main board
 
