@@ -1,8 +1,10 @@
 # Quala PID Pathfinder
-Seamlessly Pathfinder robot with feedback from sensors and using PID controller for modifying the angle of robot's head based on an AVR microcontroller.
-Without feedback, the robot is limited to using timing to determine if it's gone far enough, turned enough, or is going fast enough. And for mechanisms, without feedback, it's almost impossible to get arms at the right angle, elevators at the right height, or shooters to the right speed. There are a number of ways of getting these mechanisms to operate in a predictable way. The most common is using PID (Proportional, Integral, and Differential) control. The basic idea is that you have a sensor like an infrared or encoder that can measure the variable you're trying to control with a motor.
+The line following robot is one of the autonomous robots. That detects and follows a line drawn on the area. The line is indicated by a white line on a block surface or block line on a white surface. This robot must be sensed the color of the line. This application depends upon the sensors. Here we are using two sensors for path detection purpose. The IR sensor used for path detection and Sharp sensor used for obstacle detection. These sensors mounted at the front end of the robot. The microcontroller is an intelligent device that controls the whole circuit.
 
 [![N|Solid](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-Side-View-LQ.jpg)](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-Side-View.jpg)
+
+Seamlessly Pathfinder robot with feedback from sensors and using PID controller for modifying the angle of robot's head based on an AVR microcontroller.
+Without feedback, the robot is limited to using timing to determine if it's gone far enough, turned enough, or is going fast enough. And for mechanisms, without feedback, it's almost impossible to get arms at the right angle, elevators at the right height, or shooters to the right speed. There are a number of ways of getting these mechanisms to operate in a predictable way. The most common is using PID (Proportional, Integral, and Differential) control. The basic idea is that you have a sensor like an infrared or encoder that can measure the variable you're trying to control with a motor.
  
  ---------
  
