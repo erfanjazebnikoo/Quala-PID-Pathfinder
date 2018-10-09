@@ -1,5 +1,5 @@
 # Quala pathfinder robot controlled by PID controller
-The line following robot is one of the autonomous robots. That detects and follows a line drawn on the area. The line is indicated by a white line on a block surface or block line on a white surface. This robot must be sensed the color of the line. This application depends upon the sensors. Here we are using two sensors for path detection purpose. The IR sensor used for path detection and Sharp sensor used for obstacle detection. These sensors mounted at the front end of the robot. The microcontroller is an intelligent device that controls the whole circuit.
+The line following robot is one of the autonomous robots. That detects and follows a line drawn on the area. The line is indicated by a white line on a block surface or block line on a white surface. This robot must be sensed the color of the line. This application depends upon the sensors. Here we are using two sensors for path detection purpose. The IR sensor used for path detection and [Sharp sensor][sharp] used for obstacle detection. These sensors mounted at the front end of the robot. The microcontroller is an intelligent device that controls the whole circuit.
 
 [![N|Solid](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-Side-View-LQ.jpg)](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-Side-View.jpg)
 
@@ -68,7 +68,7 @@ Driver section consists of two motor drivers and two DC motors. The motor driver
 | Distance Measuring|[Sharp inferared sensor][sharp] x3|
 | Sensor monitor|Led array|
 | Parameters monitor|16*2 Lcd|
-| Programmer | AVR ISP programmer|
+| Programmer | [AVR ISP MKII programmer][programmer]|
 
 [![N|Solid](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-Top-View-LQ.jpg)](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-Top-View.jpg)
 
@@ -163,3 +163,4 @@ Atmel AT90CAN128 has seven different ports.
 [74hct244]:<https://assets.nexperia.com/documents/data-sheet/74HC_HCT244.pdf>
 [pid]:<https://en.wikipedia.org/wiki/PID_controller>
 [sharp]:<http://www.sharp-world.com/products/device/lineup/selection/opto/haca/diagram.html>
+[programmer]:<https://www.microchip.com/developmenttools/ProductDetails/atavrisp2>
