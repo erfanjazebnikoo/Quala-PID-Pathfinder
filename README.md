@@ -80,75 +80,76 @@ Driver section consists of two motor drivers and two DC motors. The motor driver
 
 [![N|Solid](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-MCU-LQ.jpg)](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-MCU.jpg)
 
+
 ### 3- Pin configuration
-Atmel AT90CAN128 has four different ports.
+Atmel AT90CAN128 has seven different ports.
 
 #### Port A:
 | Connection | Pin |
 | ------ | ------ |
-|Sensor16|PINA.7|
-|Sensor17|PINA.6|
-|Sensor18|PINA.5|
-|Sensor19|PINA.4|
-|Sensor20|PINA.3|
-|Sensor21|PINA.2|
-|Sensor22|PINA.1|
-|Sensor23|PINA.0|
+|Sensor 16|PINA.7|
+|Sensor 17|PINA.6|
+|Sensor 18|PINA.5|
+|Sensor 19|PINA.4|
+|Sensor 20|PINA.3|
+|Sensor 21|PINA.2|
+|Sensor 22|PINA.1|
+|Sensor 23|PINA.0|
 
 #### Port B:
 | Connection | Pin |
 | ------ | ------ |
-|Motor1_IN1|PORTB.2|
-|Motor1_IN2|PORTB.0|
-|Motor2_IN1|PORTB.3|
-|Motor2_IN2|PORTB.4|
-|PID_PWM Switch|PINB.7|
+|Motor1 Input 1|PORTB.2|
+|Motor1 Input 2|PORTB.0|
+|Motor2 Input 1|PORTB.3|
+|Motor2 Input 2|PORTB.4|
+|PID/PWM Switch|PINB.7|
 
 #### Port C:
 | Connection | Pin |
 | ------ | ------ |
-|Sensor8|PINC.0|
-|Sensor9|PINC.1|
-|Sensor10|PINC.2|
-|Sensor11|PINC.3|
-|Sensor12|PINC.4|
-|Sensor13|PINC.5|
-|Sensor14|PINC.6|
-|Sensor15|PINC.7|
+|Sensor 8|PINC.0|
+|Sensor 9|PINC.1|
+|Sensor 10|PINC.2|
+|Sensor 11|PINC.3|
+|Sensor 12|PINC.4|
+|Sensor 13|PINC.5|
+|Sensor 14|PINC.6|
+|Sensor 15|PINC.7|
 
 #### Port D:
 | Connection | Pin |
 | ------ | ------ |
-|Sensor1|PIND.6|      
-|Sensor2|PIND.5|
-|Sensor3|PIND.4|
-|Sensor4|PIND.3|
-|Sensor5|PIND.2|
-|Sensor6|PIND.1|
-|Sensor7|PIND.0|
+|Sensor 1|PIND.6|      
+|Sensor 2|PIND.5|
+|Sensor 3|PIND.4|
+|Sensor 4|PIND.3|
+|Sensor 5|PIND.2|
+|Sensor 6|PIND.1|
+|Sensor 7|PIND.0|
 
 #### Port E:
 | Connection | Pin |
 | ------ | ------ |
-|Relay|PORTE.2|
+|Speed booster relay|PORTE.2|
 
 #### Port F:
 | Connection | Pin |
 | ------ | ------ |
-|Sensor24|PINF.7|
-|ColorSensor1|PINF.5|
-|ColorSensor2|PINF.6|
-|ColorSensor3|PINF.3|
-|ColorSensor4|PINF.4|
-|Sharp1|PINF.1|
-|Sharp2|PINF.0|
-|Sharp3|PINF.2|
+|Sensor 24|PINF.7|
+|Color sensor 1|PINF.5|
+|Color sensor 2|PINF.6|
+|Color sensor 3|PINF.3|
+|Color sensor 4|PINF.4|
+|Sharp sensor 1|PINF.1|
+|Sharp sensor 2|PINF.0|
+|Sharp sensor 3|PINF.2|
 
 #### Timer: 
 | Connection | Pin |
 | ------ | ------ |
-|Motor1_PWM|OCR1B|
-|Motor2_PWM|OCR1A|
+|Motor 1 PWM|OCR1B|
+|Motor 2 PWM|OCR1A|
 
 [at90can128]: <http://ww1.microchip.com/downloads/en/DeviceDoc/doc7679.pdf>
 [library]:<https://github.com/erfanjazebnikoo/Quala-PID-Pathfinder/blob/master/Library.h>
