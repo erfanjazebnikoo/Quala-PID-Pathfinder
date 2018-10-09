@@ -19,13 +19,13 @@ Quala PID Pathfinder robot programmed by CodeVision AVR with C programming langu
 --------------
 
 ## PID
-PID Control stands for Proportional-Integral-Derivative feedback control and corresponds to one of the most commonly used controllers used in industry. It's success is based on its capacity to efficiently and robustly control a variety of processes and dynamic systems, while having an extremely simple structure and intuitive tuning procedures. Although not comparable in performance with modern control strategies, it is still the best starting point when one has to start designing the autopilot for an unmanned aircraft. In fact, most existing attitude control functionalities found in commercial autopilots or open-source developments, rely on some sort of PID Controls. The structure of the PID controller is shown in below:
+[PID][pid] Control stands for Proportional-Integral-Derivative feedback control and corresponds to one of the most commonly used controllers used in industry. It's success is based on its capacity to efficiently and robustly control a variety of processes and dynamic systems, while having an extremely simple structure and intuitive tuning procedures. Although not comparable in performance with modern control strategies, it is still the best starting point when one has to start designing the autopilot for an unmanned aircraft. In fact, most existing attitude control functionalities found in commercial autopilots or open-source developments, rely on some sort of PID Controls. The structure of the [PID controller][pid] is shown in below:
 
 ![N|Solid](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-PID.png)
 
-The PID Controller consists of the additive action of the Proportional, the Integral and the Derivative component. Not all of them have to be present, therefore we also often employ P-controllers, PI-controllers or PD-controllers. For the remaining of this text, we will describe the PID controller, while any other version can be derived by eliminating the relevant components. 
+The [PID Controller][pid] consists of the additive action of the Proportional, the Integral and the Derivative component. Not all of them have to be present, therefore we also often employ P-controllers, PI-controllers or PD-controllers. For the remaining of this text, we will describe the PID controller, while any other version can be derived by eliminating the relevant components. 
 
-The PID controller bases its functionality on the computation of the "tracking error" e and its three gains KP, KI, KD. In their combination, they lead to the control action u, as shown in the following expression:
+The [PID controller][pid] bases its functionality on the computation of the "tracking error" e and its three gains KP, KI, KD. In their combination, they lead to the control action u, as shown in the following expression:
 
 ![N|Solid](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-PID-F.gif)
 
@@ -42,7 +42,7 @@ The proportional term corresponds to the first term of the expression on the rig
 ---------
 
 ## Hardware
-A pathfinder robot with feedback from sensors and using PID controller for modifying the angle of robot's head with an Integrated mechanical design based on an AVR microcontroller.
+A pathfinder robot with feedback from sensors and using [PID controller][pid] for modifying the angle of robot's head with an Integrated mechanical design based on an AVR microcontroller.
 Without feedback, the robot is limited to using timing to determine if it's gone far enough, turned enough, or is going fast enough. And for mechanisms, without feedback, it's almost impossible to get arms at the right angle, elevators at the right height, or shooters to the right speed. There are a number of ways of getting these mechanisms to operate in a predictable way. The most common is using PID (Proportional, Integral, and Differential) control. The basic idea is that you have a sensor like an infrared or encoder that can measure the variable you're trying to control with a motor.
 
 ### Concepts of Line Follower
@@ -55,16 +55,17 @@ In this line follower robot we have used IR Transmitters and receivers also call
 Here in this robot when the sensor senses a white surface then buffer gets High as input and when the senses black line buffer gets Low as input.
 
 ### 1-  Main board
-AT90CAN128 8-bit AVR Microcontrollers is used for controlling whole the process of line follower robot. The outputs of comparators are connected to digital pins. At90can128 read these signals and send commands to the driver circuit to drive the line follower. 
-Driver section consists of two motor drivers and two DC motors. The motor driver is used for driving motors because AT90CAN128 does not supply enough voltage and current to the motor. So we added a motor driver circuit to get enough voltage and current for the motor. The microcontroller sends commands to this motor driver and then it drives motors.
+[AT90CAN128][at90can128] 8-bit AVR Microcontrollers is used for controlling whole the process of line follower robot. The outputs of comparators are connected to digital pins. [AT90CAN128][at90can128] read these signals and send commands to the driver circuit to drive the line follower. 
+Driver section consists of two motor drivers and two DC motors. The motor driver is used for driving motors because [AT90CAN128][at90can128] does not supply enough voltage and current to the motor. So we added a motor driver circuit to get enough voltage and current for the motor. The microcontroller sends commands to this motor driver and then it drives motors.
 
 | Unit | Description |
 | ------ | ------ |
 | Vision|IR sensors x20 |
-| Motor Driver|L6203 x2|
-| Sensors Buffer|TI 74HCT244 x3|
+| Motor Driver|[L6203][l6203] x2|
+| Sensors Buffer|[74HCT244][74hct244] x3|
 | Speed Controller|Manual - PWM/PID|
 | Speed Boost|Auto|
+| Distance Measuring|[Sharp inferared sensor][sharp] x3|
 | Sensor monitor|Led array|
 | Parameters monitor|16*2 Lcd|
 | Programmer | AVR ISP programmer|
@@ -75,7 +76,7 @@ Driver section consists of two motor drivers and two DC motors. The motor driver
 
 | Unit | Description |
 | ------ | ------ |
-| Proccessor | [Atmel AT90CAN128 - 8-bit AVR Microcontrollers][at90can128] |
+| Microcontroller | [Atmel AT90CAN128][at90can128] - 8-bit AVR Microcontrollers |
 | Clock frequency|12.000000 MHz|
 
 [![N|Solid](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-MCU-LQ.jpg)](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-MCU.jpg)
@@ -158,4 +159,7 @@ Atmel AT90CAN128 has seven different ports.
 [move]:<https://github.com/erfanjazebnikoo/Quala-PID-Pathfinder/blob/master/Move.h>
 [controller]:<https://github.com/erfanjazebnikoo/Quala-PID-Pathfinder/blob/master/Controller.h>
 [altium]:<https://www.altium.com/>
-
+[l6203]:<http://users.ece.utexas.edu/~valvano/Datasheets/L6203.pdf>
+[74hct244]:<https://assets.nexperia.com/documents/data-sheet/74HC_HCT244.pdf>
+[pid]:<https://en.wikipedia.org/wiki/PID_controller>
+[sharp]:<http://www.sharp-world.com/products/device/lineup/selection/opto/haca/diagram.html>
