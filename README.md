@@ -29,10 +29,10 @@ Here in this robot when the sensor senses a white surface then buffer gets High 
 
 | Unit | Description |
 | ------ | ------ |
-| Vision|  20x IR sensors|
-| Motors Driver|2x L6203|
-| Sensors Buffer|Texas Instruments 74HCT244|
-| Controller Switch|Manual|
+| Vision|IR sensors x20 |
+| Motor Driver|L6203 x2|
+| Sensors Buffer|TI 74HCT244 x3|
+| Speed Controller|Manual - PWM/PID|
 | Speed Boost|Auto|
 | Sensor monitor|Led array|
 | Parameters monitor|16*2 Lcd|
@@ -50,7 +50,76 @@ Here in this robot when the sensor senses a white surface then buffer gets High 
 [![N|Solid](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-MCU-LQ.jpg)](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-MCU.jpg)
 
 ### 3- Pin configuration
-Soon...!
+
+#### Port A:
+| Connection | Pin |
+| ------ | ------ |
+|Sensor16|PINA.7|
+|Sensor17|PINA.6|
+|Sensor18|PINA.5|
+|Sensor19|PINA.4|
+|Sensor20|PINA.3|
+|Sensor21|PINA.2|
+|Sensor22|PINA.1|
+|Sensor23|PINA.0|
+
+#### Port B:
+| Connection | Pin |
+| ------ | ------ |
+|Motor1_IN1|PORTB.2|
+|Motor1_IN2|PORTB.0|
+|Motor2_IN1|PORTB.3|
+|Motor2_IN2|PORTB.4|
+|PID_PWM Switch|PINB.7|
+
+#### Port C:
+| Connection | Pin |
+| ------ | ------ |
+|Sensor8|PINC.0|
+|Sensor9|PINC.1|
+|Sensor10|PINC.2|
+|Sensor11|PINC.3|
+|Sensor12|PINC.4|
+|Sensor13|PINC.5|
+|Sensor14|PINC.6|
+|Sensor15|PINC.7|
+
+#### Port D:
+| Connection | Pin |
+| ------ | ------ |
+|Sensor1|PIND.6|      
+|Sensor2|PIND.5|
+|Sensor3|PIND.4|
+|Sensor4|PIND.3|
+|Sensor5|PIND.2|
+|Sensor6|PIND.1|
+|Sensor7|PIND.0|
+
+#### Port E:
+| Connection | Pin |
+| ------ | ------ |
+|Relay|PORTE.2|
+
+#### Port F:
+| Connection | Pin |
+| ------ | ------ |
+|Sensor24|PINF.7|
+|ColorSensor1|PINF.5|
+|ColorSensor2|PINF.6|
+|ColorSensor3|PINF.3|
+|ColorSensor4|PINF.4|
+|Sharp1|PINF.1|
+|Sharp2|PINF.0|
+|Sharp3|PINF.2|
+
+#### Timer: 
+| Connection | Pin |
+| ------ | ------ |
+|Motor1_PWM|OCR1B|
+|Motor2_PWM|OCR1A|
+
+
+--------------
 
 ## PID
 PID Control stands for Proportional-Integral-Derivative feedback control and corresponds to one of the most commonly used controllers used in industry. It's success is based on its capacity to efficiently and robustly control a variety of processes and dynamic systems, while having an extremely simple structure and intuitive tuning procedures. Although not comparable in performance with modern control strategies, it is still the best starting point when one has to start designing the autopilot for an unmanned aircraft. In fact, most existing attitude control functionalities found in commercial autopilots or open-source developments, rely on some sort of PID Controls. The structure of the PID controller is shown in below:
