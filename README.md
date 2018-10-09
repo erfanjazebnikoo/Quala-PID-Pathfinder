@@ -3,8 +3,7 @@ The line following robot is one of the autonomous robots. That detects and follo
 
 [![N|Solid](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-Side-View-LQ.jpg)](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-Side-View.jpg)
 
-Seamlessly Pathfinder robot with feedback from sensors and using PID controller for modifying the angle of robot's head based on an AVR microcontroller.
-Without feedback, the robot is limited to using timing to determine if it's gone far enough, turned enough, or is going fast enough. And for mechanisms, without feedback, it's almost impossible to get arms at the right angle, elevators at the right height, or shooters to the right speed. There are a number of ways of getting these mechanisms to operate in a predictable way. The most common is using PID (Proportional, Integral, and Differential) control. The basic idea is that you have a sensor like an infrared or encoder that can measure the variable you're trying to control with a motor.
+The original objective of this robot was to take it to competitions where it would race against other robots, so my design always focused in achieving the highest speed while conforming to the rules of the competitions. Nonethless, every or almost every aspect of this robot can be modified to adjust for the needs, skills or budget of the maker.
  
  ---------
  
@@ -14,7 +13,8 @@ Quala PID Pathfinder robot programmed by CodeVision AVR with C programming langu
 ---------
 
 ## Hardware
-soon...!
+A pathfinder robot with feedback from sensors and using PID controller for modifying the angle of robot's head with an Integrated mechanical design based on an AVR microcontroller.
+Without feedback, the robot is limited to using timing to determine if it's gone far enough, turned enough, or is going fast enough. And for mechanisms, without feedback, it's almost impossible to get arms at the right angle, elevators at the right height, or shooters to the right speed. There are a number of ways of getting these mechanisms to operate in a predictable way. The most common is using PID (Proportional, Integral, and Differential) control. The basic idea is that you have a sensor like an infrared or encoder that can measure the variable you're trying to control with a motor.
 
 ### Concepts of Line Follower
 The concept of working of line follower is related to light. We use here the behavior of light at the black and white surface. When light fall on a white surface it is almost full reflected and in case of black surface light is completely absorbed. This behavior of light is used in building a line follower robot.
@@ -26,6 +26,8 @@ In this line follower robot we have used IR Transmitters and receivers also call
 Here in this robot when the sensor senses a white surface then buffer gets High as input and when the senses black line buffer gets Low as input.
 
 ### 1-  Main board
+AT90CAN128 8-bit AVR Microcontrollers is used for controlling whole the process of line follower robot. The outputs of comparators are connected to digital pins. At90can128 read these signals and send commands to the driver circuit to drive the line follower. 
+Driver section consists of two motor drivers and two DC motors. The motor driver is used for driving motors because AT90CAN128 does not supply enough voltage and current to the motor. So we added a motor driver circuit to get enough voltage and current for the motor. The microcontroller sends commands to this motor driver and then it drives motors.
 
 | Unit | Description |
 | ------ | ------ |
