@@ -8,7 +8,36 @@ The original objective of this robot was to take it to competitions where it wou
  ---------
  
 ## Software
-Quala PID Pathfinder robot programmed by CodeVision AVR with C programming language. I implemented and defined both PID and PWM methods for controlling the robot. 
+Quala PID Pathfinder robot programmed by CodeVision AVR with C programming language which implemented and defined both PID and PWM methods for controlling the robot.
+
+- [Library][library]: Defined all driver files and pin configuration so every other file can use this library for accessing to whole system parameters.
+- [Path Finding][path_finding]: These files contain two methods for following the line or avoid and pass the obstacle.
+- [Sensor][sensor]: All those functionalities need to read the sensors values, find the line, detect the color of the line and provide data for controllers with IR sensors happen here.
+- [Move][move]: Define all type of movement with two wheels and choose which controller should use for controlling motors driver. 
+- [Controller][controller]: The methods implemented in these files which set motors speed depending on which controller was chosen manually. The PID controller uses the dynamic parameters to calculate the best speed for motors. There is a switch on board that you can change the controller between PID and PWM. 
+
+--------------
+
+## PID
+PID Control stands for Proportional-Integral-Derivative feedback control and corresponds to one of the most commonly used controllers used in industry. It's success is based on its capacity to efficiently and robustly control a variety of processes and dynamic systems, while having an extremely simple structure and intuitive tuning procedures. Although not comparable in performance with modern control strategies, it is still the best starting point when one has to start designing the autopilot for an unmanned aircraft. In fact, most existing attitude control functionalities found in commercial autopilots or open-source developments, rely on some sort of PID Controls. The structure of the PID controller is shown in below:
+
+![N|Solid](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-PID.png)
+
+The PID Controller consists of the additive action of the Proportional, the Integral and the Derivative component. Not all of them have to be present, therefore we also often employ P-controllers, PI-controllers or PD-controllers. For the remaining of this text, we will describe the PID controller, while any other version can be derived by eliminating the relevant components. 
+
+The PID controller bases its functionality on the computation of the "tracking error" e and its three gains KP, KI, KD. In their combination, they lead to the control action u, as shown in the following expression:
+
+![N|Solid](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-PID-F.gif)
+
+The proportional term corresponds to the first term of the expression on the right side, the integral action to the second, and the derivative to the last one. Each of these terms plays specific roles in order to shape the transient and steady-state response of the closed-loop system. More specifically:
+
+ - **Proportional Action**: The P-action is the component mostly relevant with the dominant response of the system. Increasing the P gain KP typically leads to shorter rise times, but also larger overshoots. Although it can decrease the setling time of the system, it can also lead to highly osciallatory or unstable behavior. 
+
+ - **Integral Action**: The integral action is typically employed to optimize the steady-state response of the system and shape its dynamic behavior. Essentially, it brings memory to the system. Increasing the I gain KI, leads to reduction of the steady-state error (often elimination) but also more and larger oscillations. 
+ 
+ - **Derivative Action**: The derivative action responds to the rate of change of the error signal and is mostly relevant with shaping the damping behavior of the closed-loop system. In that sense, increasing the D gain KD, typically leads to smaller overshoot and a better damped behavior, but also to larger steady-state errors.
+ 
+ - **Collective Action**: As understood from this brief overview of the role of each action of the PID components, one cannot independently tune the three different gains. In fact, each one of them aims to offer a desired response characteristic (e.g. faster respone, damped and smooth oscillations, near-zero steady-state error) but at the same has a negative effect which has to be compensated by re-tuning another gain. Therefore, PID tuning is a highly coupled and iterative procedure. 
 
 ---------
 
@@ -46,12 +75,13 @@ Driver section consists of two motor drivers and two DC motors. The motor driver
 
 | Unit | Description |
 | ------ | ------ |
-| Proccessor | [AT90CAN128 - 8-bit AVR Microcontrollers][at90can128] |
+| Proccessor | [Atmel AT90CAN128 - 8-bit AVR Microcontrollers][at90can128] |
 | Clock frequency|12.000000 MHz|
 
 [![N|Solid](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-MCU-LQ.jpg)](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-MCU.jpg)
 
 ### 3- Pin configuration
+Atmel AT90CAN128 has four different ports.
 
 #### Port A:
 | Connection | Pin |
@@ -120,43 +150,11 @@ Driver section consists of two motor drivers and two DC motors. The motor driver
 |Motor1_PWM|OCR1B|
 |Motor2_PWM|OCR1A|
 
-
---------------
-
-## PID
-PID Control stands for Proportional-Integral-Derivative feedback control and corresponds to one of the most commonly used controllers used in industry. It's success is based on its capacity to efficiently and robustly control a variety of processes and dynamic systems, while having an extremely simple structure and intuitive tuning procedures. Although not comparable in performance with modern control strategies, it is still the best starting point when one has to start designing the autopilot for an unmanned aircraft. In fact, most existing attitude control functionalities found in commercial autopilots or open-source developments, rely on some sort of PID Controls. The structure of the PID controller is shown in below:
-
-![N|Solid](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-PID.png)
-
-The PID Controller consists of the additive action of the Proportional, the Integral and the Derivative component. Not all of them have to be present, therefore we also often employ P-controllers, PI-controllers or PD-controllers. For the remaining of this text, we will describe the PID controller, while any other version can be derived by eliminating the relevant components. 
-
-The PID controller bases its functionality on the computation of the "tracking error" e and its three gains KP, KI, KD. In their combination, they lead to the control action u, as shown in the following expression:
-
-![N|Solid](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-PID-F.gif)
-
-The proportional term corresponds to the first term of the expression on the right side, the integral action to the second, and the derivative to the last one. Each of these terms plays specific roles in order to shape the transient and steady-state response of the closed-loop system. More specifically:
-
- - **Proportional Action**: The P-action is the component mostly relevant with the dominant response of the system. Increasing the P gain KP typically leads to shorter rise times, but also larger overshoots. Although it can decrease the setling time of the system, it can also lead to highly osciallatory or unstable behavior. 
-
- - **Integral Action**: The integral action is typically employed to optimize the steady-state response of the system and shape its dynamic behavior. Essentially, it brings memory to the system. Increasing the I gain KI, leads to reduction of the steady-state error (often elimination) but also more and larger oscillations. 
- 
- - **Derivative Action**: The derivative action responds to the rate of change of the error signal and is mostly relevant with shaping the damping behavior of the closed-loop system. In that sense, increasing the D gain KD, typically leads to smaller overshoot and a better damped behavior, but also to larger steady-state errors.
- 
- - **Collective Action**: As understood from this brief overview of the role of each action of the PID components, one cannot independently tune the three different gains. In fact, each one of them aims to offer a desired response characteristic (e.g. faster respone, damped and smooth oscillations, near-zero steady-state error) but at the same has a negative effect which has to be compensated by re-tuning another gain. Therefore, PID tuning is a highly coupled and iterative procedure. 
-
 [at90can128]: <http://ww1.microchip.com/downloads/en/DeviceDoc/doc7679.pdf>
-[ads7843]: <http://www.ti.com/lit/ds/symlink/ads7843.pdf>
-[PCA82C250]: <https://www.nxp.com/docs/en/data-sheet/PCA82C250.pdf>
-[ks0108]: <https://www.adafruit.com/product/188>
-[mmc]: <https://en.wikipedia.org/wiki/MultiMediaCard>
-[ulink]: <http://www2.keil.com/mdk5/ulink>
-[keil]:<http://www2.keil.com/mdk5/uvision/>
+[library]:<https://github.com/erfanjazebnikoo/Quala-PID-Pathfinder/blob/master/Library.h>
+[path_finding]:<https://github.com/erfanjazebnikoo/Quala-PID-Pathfinder/blob/master/PathFinding.h>
+[sensor]:<https://github.com/erfanjazebnikoo/Quala-PID-Pathfinder/blob/master/Sensor.h>
+[move]:<https://github.com/erfanjazebnikoo/Quala-PID-Pathfinder/blob/master/Move.h>
+[controller]:<https://github.com/erfanjazebnikoo/Quala-PID-Pathfinder/blob/master/Controller.h>
 [altium]:<https://www.altium.com/>
-[initialization]:<https://github.com/erfanjazebnikoo/Multi-Task-Monitoring-and-Logger-System/blob/master/initialization.h>
-[tab]:<https://github.com/erfanjazebnikoo/Multi-Task-Monitoring-and-Logger-System/blob/master/util/tab.h>
-[logger]:<https://github.com/erfanjazebnikoo/Multi-Task-Monitoring-and-Logger-System/blob/master/util/logger.h>
-[network]:<https://github.com/erfanjazebnikoo/Multi-Task-Monitoring-and-Logger-System/blob/master/util/network.h>
-[can]:<https://en.wikipedia.org/wiki/CAN_bus>
-[arm]:<https://en.wikipedia.org/wiki/ARM_architecture>
-[middle]:<http://wiki.robocup.org/Middle_Size_League>
 
