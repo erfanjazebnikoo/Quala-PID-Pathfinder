@@ -1,6 +1,6 @@
 # Quala pathfinder robot controlled by PID controller
 
-The line following robot is one of the autonomous robots. That detects and follows a line drawn on the area. The line is indicated by a black line on a white surface or white line on a black surface. This robot must be sensed the color of the line. This application depends upon the sensors. Here we are using twenty-four IR sensors. The IR sensor used for path detection and [Sharp sensor][sharp] used for obstacle detection. These sensors mounted at the front end of the robot. The microcontroller is an intelligent device that controls the whole circuit.
+The line following robot is one of the autonomous robots. That detects and follows a line drawn on the area. The line is indicated by a black line on a white surface or white line on a black surface. This robot must be sensed the color of the line. This application depends upon the sensors. Here we are using twenty IR sensors. The IR sensor used for path detection and [Sharp sensor][sharp] used for obstacle detection. These sensors mounted at the front end of the robot. The microcontroller is an intelligent device that controls the whole circuit.
 
 [![N|Solid](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-Side-View-LQ.jpg)](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-Side-View.jpg)
 
