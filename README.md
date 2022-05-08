@@ -2,7 +2,7 @@
 
 The line following robot is one of the autonomous robots. That detects and follows a line drawn on the area. The line is indicated by a black line on a white surface or white line on a black surface. This robot must be sensed the color of the line. This application depends upon the sensors. Here we are using twenty IR sensors. The IR sensor used for path detection and [Sharp sensor][sharp] used for obstacle detection. These sensors mounted at the front end of the robot. The microcontroller is an intelligent device that controls the whole circuit.
 
-[![N|Solid](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-Side-View-LQ.jpg)](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-Side-View.jpg)
+[![N|Solid](http://erfanjn.com/downloads/Quala-PID-Pathfinder-Side-View-LQ.jpg)](http://erfanjn.com/downloads/Quala-PID-Pathfinder-Side-View.jpg)
 
 The original objective of this robot was to take it to competitions where it would race against other robots, so my design always focused in achieving the highest speed while conforming to the rules of the competitions. Nonethless, every or almost every aspect of this robot can be modified to adjust for the needs, skills or budget of the maker.
  
@@ -22,13 +22,13 @@ Quala PID Pathfinder robot programmed by CodeVision AVR with C programming langu
 ## PID
 [PID][pid] Control stands for Proportional-Integral-Derivative feedback control and corresponds to one of the most commonly used controllers used in industry. It's success is based on its capacity to efficiently and robustly control a variety of processes and dynamic systems, while having an extremely simple structure and intuitive tuning procedures. Although not comparable in performance with modern control strategies, it is still the best starting point when one has to start designing the autopilot for an unmanned aircraft. In fact, most existing attitude control functionalities found in commercial autopilots or open-source developments, rely on some sort of PID Controls. The structure of the [PID controller][pid] is shown in below:
 
-![N|Solid](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-PID.png)
+![N|Solid](http://erfanjn.com/downloads/Quala-PID-Pathfinder-PID.png)
 
 The [PID Controller][pid] consists of the additive action of the Proportional, the Integral and the Derivative component. Not all of them have to be present, therefore we also often employ P-controllers, PI-controllers or PD-controllers. For the remaining of this text, we will describe the PID controller, while any other version can be derived by eliminating the relevant components. 
 
 The [PID controller][pid] bases its functionality on the computation of the "tracking error" e and its three gains KP, KI, KD. In their combination, they lead to the control action u, as shown in the following expression:
 
-![N|Solid](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-PID-F.gif)
+![N|Solid](http://erfanjn.com/downloads/Quala-PID-Pathfinder-PID-F.gif)
 
 The proportional term corresponds to the first term of the expression on the right side, the integral action to the second, and the derivative to the last one. Each of these terms plays specific roles in order to shape the transient and steady-state response of the closed-loop system. More specifically:
 
@@ -71,7 +71,7 @@ Driver section consists of two motor drivers and two DC motors. The motor driver
 | Parameters monitor|16*2 Lcd|
 | Programmer | [AVR ISP MKII programmer][programmer]|
 
-[![N|Solid](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-Top-View-LQ.jpg)](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-Top-View.jpg)
+[![N|Solid](http://erfanjn.com/downloads/Quala-PID-Pathfinder-Top-View-LQ.jpg)](http://erfanjn.com/downloads/Quala-PID-Pathfinder-Top-View.jpg)
 
 ### 2- MCU board
 
@@ -80,7 +80,7 @@ Driver section consists of two motor drivers and two DC motors. The motor driver
 | Microcontroller | [Atmel AT90CAN128][at90can128] - 8-bit AVR Microcontrollers |
 | Clock frequency|12.000000 MHz|
 
-[![N|Solid](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-MCU-LQ.jpg)](http://erfanjazebnikoo.com/downloads/Quala-PID-Pathfinder-MCU.jpg)
+[![N|Solid](http://erfanjn.com/downloads/Quala-PID-Pathfinder-MCU-LQ.jpg)](http://erfanjn.com/downloads/Quala-PID-Pathfinder-MCU.jpg)
 
 
 ### 3- Pin configuration
